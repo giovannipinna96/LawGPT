@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "lawgpt"
+version = "0.1.0"
+description = "model for summarize law into massime (italian)"
+authors = ["Giovanni Pinna"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+cookiecutter = "^2.5.0"
+icecream = "^2.1.3"
+notebook = "^7.0.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
