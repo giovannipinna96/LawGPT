@@ -1,0 +1,8 @@
+{
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true
+}
