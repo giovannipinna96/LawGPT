@@ -1,31 +1,31 @@
-# -*- coding: utf-8 -*-
-import click
-import logging
-from pathlib import Path
-from dotenv import find_dotenv, load_dotenv
+import os
+import json
 
 
-@click.command()
-@click.argument("input_filepath", type=click.Path(exists=True))
-@click.argument("output_filepath", type=click.Path())
-def main(input_filepath, output_filepath):
-    """Runs data processing scripts to turn raw data from (../raw) into
-    cleaned data ready to be analyzed (saved in ../processed).
-    """
-    llogger = logging.getLogger(__name__)
-    llogger.info("making final data set from raw data")
+class MakeDataset_EurLexSumIt:
+    def __init__(self, root_dir):
+        self.root_dir = root_dir
 
+    def _get_data(self, file_name: str):
+        test_path = os.path.join(self.root_dir, file_name)
+        if not os.path.exists(test_path):
+            raise FileNotFoundError
 
-if __name__ == "__main__":
-    log_fmt = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    logging.basicConfig(level=logging.INFO, format=log_fmt)
+        data_list = []
+        with open(test_path, "r") as file:
+            for line in file:
+                try:
+                    json_obj = json.loads(line)
+                    data_list.append(json_obj)
+                except json.JSONDecodeError as e:
+                    print(f"Error decoding JSON: {e}")
+        return data_list
 
-    # not used in this stub but often useful for finding various files
-    project_dir = Path(__file__).resolve().parents[2]
+    def test_data(self, test_file_name: str):
+        return self._get_data(test_file_name)
 
-    # find .env automagically by walking up directories until it's found, then
+    def train_data(self, train_file_name: str):
+        return self._get_data(train_file_name)
 
-    load_dotenv(find_dotenv())
-
-    # load up the .env entries as  environment variables
-    main()
+    def dev_data(self, dev_file_name: str):
+        return self._get_data(dev_file_name)
