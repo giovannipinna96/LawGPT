@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --nodes=1                    # 1 node
+#SBATCH --ntasks-per-node=32         # 32 tasks per node
+#SBATCH --time=1:00:00               # time limits: 1 hour
+#SBATCH --error=myJob.err            # standard error file
+#SBATCH --output=myJob.out           # standard output file
+#SBATCH --account=<account_no>       # account name
+#SBATCH --partition=<partition_name> # partition name (boost_usr_prod -> normal	max = 32 nodes	24:00:00)
+                                        # -> boost_qos_dbg	max = 2 nodes	00:30:00	2 nodes / 64 cores / 8 GPUs
+                                        # -> boost_qos_bprod min = 33 nodes     max =256 nodes   24:00:00	256 nodes 
+                                        # -> boost_qos_lprod   max = 3 nodes   4-00:00:00	3 nodes /12 GPUs
+#SBATCH --qos=<qos_name>             # quality of service
+#SBATCH --gres=gpu:<value>           # (generic resources, e.g. gpus)
+#SBATCH --ntasks-per-node=1          # number of tasks/processes per node 
+#SBATCH --cpus-per-task=TT           # number of threads/cpus per task
+#SBATCH --mem=10000                  # in mb
+
