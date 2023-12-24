@@ -1,0 +1,9 @@
+torchrun --nproc_per_node 1 lawgpt/src/features/run_summarization.py --model_name_or_path t5-small --do_train --train_file lawgpt/data/interim/summarization/eur-lex-sum_it/test.json --source_prefix "summarize: " --output_dir ./provat5small --text_column reference --summary_column summary --fp16
+
+
+
+python lawgpt/src/features/run_summarization.py --model_name_or_path t5-small --do_train --train_file lawgpt/data/interim/summarization/eur-lex-sum_it/test.json --source_prefix "summarize: " --output_dir ./provat5small --text_column reference --summary_column summary
+
+
+
+deepspeed --num_gpus=2 lawgpt/src/features/run_summarization.py --model_name_or_path t5-small --do_train --train_file lawgpt/data/interim/summarization/eur-lex-sum_it/test.json --source_prefix "summarize: " --output_dir ./provat5small --text_column reference --summary_column summary --deepspeed lounch/ds_config.json
