@@ -1,0 +1,5 @@
+ITALIAN
+<start_of_turn>user\nSei un modello esperto di leggi, sentenze e ordinanze italiane. Di seguito è riportata una sentenza o una legge italiana, il tuo compito è quello di riassumerla. Scrivi una risposta che soddisfi adeguatamente questa richiesta.<end_of_turn>\n<start_of_turn>model\n
+
+ENG
+<start_of_turn>user\nYou are a model expert on Italian laws, judgments and ordinances. The following is an Italian judgment or law; your task is to summarize it. Write an answer that adequately satisfies this prompt.<end_of_turn>\n<start_of_turn>model\n
